@@ -11,6 +11,7 @@ export class ProductsService {
 
   getProducts(){
     // return this.http.get('https://api.escuelajs.co/api/v1/products');
+    // return this.http.get('https://api.escuelajs.co/api/v1/products/?categoryId=2');
     return this.http.get('https://api.escuelajs.co/api/v1/products/?categoryId=2');
   }
 }
