@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Products } from '../models/product';
 
 @Injectable({
   providedIn: 'root'
@@ -20,4 +21,9 @@ export class ProductService {
     return this.http.delete(this.url + id);
   }
 
-}
+  //Metodo para Crear Productos POST
+  crearProducto(producto: Products): Observable<any> {
+    return this.http.post(this.url, producto);
+  }
+
+  }
