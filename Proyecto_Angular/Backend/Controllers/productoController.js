@@ -21,19 +21,31 @@ exports.crearProducto = async (req, res) => {
 
 //Función para Obtener Productos GET
 exports.obtenerProductos = async (req, res) => {
-
     try {
-
-        const productos = await Producto.find();
+        const { categoria } = req.query;
+        const query = categoria ? { categoria } : {};
+        const productos = await Producto.find(query);
         res.json(productos);
-
-        
     } catch (error) {
         console.log(error);
-        res.status(500).send('Error!!')
+        res.status(500).send('Error!!');
     }
-}
+};
 
+exports.filtrarProductos = async (req, res) => {
+    const categoria = req.params.categoria;
+    const regex = new RegExp(categoria, "i");
+    try {
+      const productos = await Producto.find({ categoria: regex });
+      res.json(productos);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  };
+  
+  
+  
+  
 //Función para Editar Productos PUT
 exports.editarProducto = async (req, res) => {
 
@@ -101,10 +113,3 @@ exports.eliminarProducto = async (req, res) => {
         res.status(500).send('Error!!')
     }
 }
-
-
-//"nombre": "Teclado XTech",
-//"categoria": "Teclados",
-//"descripcion": "Teclado de Membrana",
-//"precio": 9500,
-//"imagen": "Teclado.jpg",

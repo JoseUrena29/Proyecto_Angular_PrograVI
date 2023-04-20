@@ -25,5 +25,10 @@ export class ProductService {
   crearProducto(producto: Products): Observable<any> {
     return this.http.post(this.url, producto);
   }
+  //Metodo para Filtrar Productos POST
+  filtrarProductos(categoria: string): Observable<Products[]> {
+    const filtro = { categoria: categoria.toLowerCase() };
+    return this.http.post<Products[]>(`${this.url}/Productos/${categoria}`, filtro);
+  } 
 
   }

@@ -9,10 +9,12 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./get-products.component.css']
 })
 export class GetProductsComponent implements OnInit {
-  listProductos: Products[] = []
+  listProductos: Products[] = [];
+  categoriaFiltro: string = '';
+  
 
   constructor(private _productoService: ProductService,
-              private toastr: ToastrService){}
+    private toastr: ToastrService) {}
 
   ngOnInit(): void { 
     this.obtenerProductos();
@@ -34,5 +36,25 @@ export class GetProductsComponent implements OnInit {
     }, error => {
       console.log(error);
     })
+  }
+
+  filtrarProductosPorCategoria() {
+    if (this.categoriaFiltro === '') {
+      this.obtenerProductos();
+    } else {
+      this._productoService.filtrarProductos(this.categoriaFiltro).subscribe(
+        data => {
+          this.listProductos = data;
+        },
+        error => {
+          console.log(error);
+        }
+      );
+    }
+  }
+
+  limpiarFiltro() {
+    this.categoriaFiltro = '';
+    this.obtenerProductos();
   }
 }
