@@ -1,40 +1,45 @@
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-lg-8 offset-lg-2">
-            <div class="card">
-                <div class="card-body text-center">
-                    <span class="titulo">LISTA DE PRODUCTOS</span>
-                    <button class="btn btn-success float-end" routerLink="/create-products">NUEVO</button>
-                    <table *ngIf="listProductos.length > 0" class="table table-striped mt-3">
-                        <thead>
-                          <tr>
-                            <th scope="col">Producto</th>
-                            <th scope="col">Categoria</th>
-                            <th scope="col">Descripción</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col">Imagen</th>
-                            <th scope="col"></th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr *ngFor="let producto of listProductos">
-                            <td>{{ producto.nombre }}</td>
-                            <td>{{ producto.categoria }}</td>
-                            <td>{{ producto.descripcion }}</td>
-                            <td>{{ producto.precio | currency:'₡' }}</td>
-                            <td>
-                              <img src="{{ producto.imagen }}" width="178" height="180">
-                            </td>
-                            <td>
-                                <i [routerLink]="['/editar-producto', producto._id]" class="fas fa-edit text-primary"></i>
-                                <i (click)="eliminarProducto(producto._id)" class="fas fa-trash text-danger"></i>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <h5 style="text-align: start; margin-top: 10px;" *ngIf="listProductos.length == 0">No hay productos para mostrar</h5>
+<div class="container-fluid mt-5">
+  <div class="row">
+    <div class="col-lg-10 offset-lg-1">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="titulo">LISTA DE PRODUCTOS</span>
+          <button class="btn btn-success float-end" routerLink="/create-products">NUEVO</button>
+
+          <div class="row mt-3">
+            <ng-container *ngIf="listProductos.length > 0; else noProductos">
+              <div class="col-md-3 mb-3" *ngFor="let producto of listProductos">
+                <div class="card">
+                  <img class="card-img-top" src="{{ producto.imagen }}" alt="{{ producto.nombre }}">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ producto.nombre }}</h5>
+                    <p class="card-text">{{ producto.descripcion }}</p>
+                    <p class="card-text"><small class="text-muted">{{ producto.categoria }}</small></p>
+                    <p class="card-text text-danger"><strong class="text-danger">{{producto.precio | currency:'₡' }}</strong></p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <button [routerLink]="['/editar-producto', producto._id]" type="button" class="btn btn-sm btn-outline-primary">
+                          <i class="fas fa-edit"></i> Editar
+                        </button>
+                        <button (click)="eliminarProducto(producto._id)" type="button" class="btn btn-sm btn-outline-danger">
+                          <i class="fas fa-trash"></i> Eliminar
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-            </div>
+              </div>
+            </ng-container>
+
+            <ng-template #noProductos>
+              <div class="col-12">
+                <h5 class="text-center">No hay productos para mostrar</h5>
+              </div>
+            </ng-template>
+          </div>
+
         </div>
+      </div>
     </div>
+  </div>
 </div>
