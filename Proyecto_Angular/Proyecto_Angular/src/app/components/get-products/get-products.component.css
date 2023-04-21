@@ -10,3 +10,9 @@
 .container-fluid {
     max-width: 1200px;
   }
+
+  .btn-secondary {
+    background-color: #e60000;
+    border-color: #e60000;
+  }
+  

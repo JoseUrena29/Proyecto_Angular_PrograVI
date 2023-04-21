@@ -1,12 +1,260 @@
 /* You can add global styles to this file, and also import other style files */
-body{
-    background: #9CECFB;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #0052D4, #65C7F7, #9CECFB);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #0052D4, #65C7F7, #9CECFB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+body {
+    background: #F9F9F9;
+    /* blanco con un ligero tono grisáceo */
 }
 
 .titulo {
     font-size: 1.8rem;
     font-family: 'Montserrat', sans-serif;
+}
+
+.header-wrapper {
+    position: relative;
+}
+
+.wpbingoLogo {
+    margin: 10px;
+}
+
+.wpbingoLogo img {
+    max-width: 150px;
+}
+
+.header-logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.contact-wrapper {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    margin-left: 200px;
+}
+
+.phone-icon {
+    font-size: 50px;
+    color: #ffffff;
+    background-color: #ff0000;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    line-height: 24px;
+    border-radius: 10%;
+    /* ajusta el valor para cambiar la curvatura de las esquinas */
+    margin-top: 0;
+    margin-right: 10px;
+    margin-bottom: 0;
+    border: none;
+    padding: 5px;
+    /* aumenta el padding para expandir el fondo rojo */
+}
+
+.phone-icon i {
+    color: white;
+    font-size: 50px;
+    /* aumenta el tamaño del icono */
+}
+
+.contact-label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.phone-number {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.phone-number span {
+    margin: 0;
+    /* elimina el margen del span para alinear con "47049024" */
+}
+
+.logo-and-contact {
+    display: flex;
+    align-items: center;
+}
+
+.contact-details {
+    margin-left: 5px;
+}
+
+.header-logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.header-logo img {
+    max-width: 150px;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.clock-icon {
+    display: none;
+}
+
+.clock-icon i {
+    color: #333;
+    font-size: 50px;
+}
+
+
+.open-hours {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    /* ajusta este valor para separar el icono del texto */
+}
+
+.open-hours .clock-icon {
+    font-size: 50px;
+    color: #ffffff;
+    background-color: #ff0000;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    line-height: 24px;
+    border-radius: 10%;
+    /* ajusta el valor para cambiar la curvatura de las esquinas */
+    margin-top: 0;
+    margin-right: 10px;
+    margin-bottom: 0;
+    border: none;
+    padding: 5px;
+    /* aumenta el padding para expandir el fondo rojo */
+}
+
+.open-hours .clock-icon i {
+    color: white;
+    font-size: 50px;
+    /* aumenta el tamaño del icono */
+}
+
+.open-hours .open-hours-details {
+    margin-left: 5px;
+}
+
+.open-hours .open-hours-details label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.open-hours .open-hours-details p {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.open-hours-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 20px;
+    /* se ajusta el margen izquierdo */
+}
+
+.open-hours-details p {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+    white-space: nowrap;
+    /* evita el salto de línea */
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-right: 20px;
+    /* se agrega un margen derecho */
+}
+
+
+/* FOOTER SECTION */
+
+.footer-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+    margin-right: 40px; /* Agregamos un margen derecho de 40px */
+    padding-left: 20px; /* Agregamos un padding izquierdo de 20px */
+  }
+  
+  
+  .footer-logo {
+    max-width: 150px;
+    margin-right: 20px;
+  }
+  
+  .contact-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #222222;
+    padding-left: 20px; /* Agregamos un padding izquierdo de 20px */
+    text-align: left; /* Alineación del texto a la izquierda */
+  }
+
+  .contact-footer h2,
+  .contact-footer h3,
+  .contact-footer p {
+    color: #ffffff;
+    margin: 0;
+    font-weight: normal;
+  }
+  
+  .contact-footer h2 {
+    font-size: 24px;
+    margin-top: 10px;
+  }
+  
+  .contact-footer h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .contact-footer p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  .contact-footer .address {
+    margin-bottom: 10px;
+  }
+
+  .map-container {
+    float: right;
+    margin-right: 50px;
+}
+
+.contact-container {
+    float: left;
 }
