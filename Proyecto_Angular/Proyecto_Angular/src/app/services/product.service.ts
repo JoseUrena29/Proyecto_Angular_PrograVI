@@ -25,6 +25,16 @@ export class ProductService {
   crearProducto(producto: Products): Observable<any> {
     return this.http.post(this.url, producto);
   }
+
+  //Metodo para Editar Productos GET/PUT
+  obtenerProducto(id: string): Observable<any> {
+    return this.http.get(this.url + id);
+  }
+
+  editarProducto(id: string, producto: Products): Observable<any> {
+    return this.http.put(this.url + id, producto);
+  }
+
   //Metodo para Filtrar Productos POST
   filtrarProductos(categoria: string): Observable<Products[]> {
     const filtro = { categoria: categoria.toLowerCase() };
