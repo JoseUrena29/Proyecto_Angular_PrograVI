@@ -11,16 +11,16 @@ import { ProductService } from 'src/app/services/product.service';
 export class GetProductsComponent implements OnInit {
   listProductos: Products[] = [];
   categoriaFiltro: string = '';
-  
+
 
   constructor(private _productoService: ProductService,
-    private toastr: ToastrService) {}
+    private toastr: ToastrService) { }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.obtenerProductos();
   }
 
-  obtenerProductos(){
+  obtenerProductos() {
     this._productoService.getProductos().subscribe(data => {
       console.log(data);
       this.listProductos = data;
@@ -29,9 +29,9 @@ export class GetProductsComponent implements OnInit {
     })
   }
 
-  eliminarProducto(id: any){
+  eliminarProducto(id: any) {
     this._productoService.eliminarProducto(id).subscribe(data => {
-      this.toastr.error('El Producto fue eliminado con éxito!','Producto Eliminado');
+      this.toastr.error('El Producto fue eliminado con éxito!', 'Producto Eliminado');
       this.obtenerProductos();
     }, error => {
       console.log(error);
@@ -56,5 +56,9 @@ export class GetProductsComponent implements OnInit {
   limpiarFiltro() {
     this.categoriaFiltro = '';
     this.obtenerProductos();
+  }
+
+  formatDescription(descripcion: string): string[] {
+    return this._productoService.formatDescription(descripcion);
   }
 }

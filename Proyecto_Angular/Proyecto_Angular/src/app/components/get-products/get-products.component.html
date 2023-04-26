@@ -11,13 +11,14 @@
               <form (ngSubmit)="filtrarProductosPorCategoria()" #buscarForm="ngForm">
                 <div class="form-group d-flex align-items-center">
                   <label for="categoria" class="me-2"><strong>CATEGORIA</strong></label>
-                  <input type="text" class="form-control me-2" id="categoria" name="categoria" [(ngModel)]="categoriaFiltro">
+                  <input type="text" class="form-control me-2" id="categoria" name="categoria"
+                    [(ngModel)]="categoriaFiltro">
                   <button type="submit" class="btn btn-secondary float-end">Buscar</button>
                 </div>
               </form>
             </div>
           </div>
-                   
+
           <div class="row mt-3">
             <ng-container *ngIf="listProductos.length > 0; else noProductos">
               <div class="col-md-3 mb-3" *ngFor="let producto of listProductos">
@@ -25,7 +26,11 @@
                   <img class="card-img-top" src="{{ producto.imagen }}" alt="{{ producto.nombre }}">
                   <div class="card-body">
                     <h5 class="card-title">{{ producto.nombre }}</h5>
-                    <p class="card-text">{{ producto.descripcion }}</p>
+                    <div *ngIf="producto.descripcion">
+                      <div *ngFor="let desc of producto.descripcion.split(', ')">
+                        <p class="card-text">{{ desc }}</p>
+                      </div>
+                    </div>
                     <p class="card-text"><small class="text-muted">{{ producto.categoria }}</small></p>
                     <p class="card-text text-danger"><strong class="text-danger">{{producto.precio | currency:'₡'
                         }}</strong></p>

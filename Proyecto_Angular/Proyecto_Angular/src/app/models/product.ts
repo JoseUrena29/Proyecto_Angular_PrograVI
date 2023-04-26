@@ -6,7 +6,7 @@ export class Products {
     precio: number;
     imagen: string;
 
-    constructor(nombre: string, categoria: string, descripcion: string, precio: number, imagen: string){
+    constructor(nombre: string, categoria: string, descripcion: string, precio: number, imagen: string) {
         this.nombre = nombre;
         this.categoria = categoria;
         this.descripcion = descripcion;

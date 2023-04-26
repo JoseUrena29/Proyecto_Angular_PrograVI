@@ -17,10 +17,10 @@ export class CreateProductsComponent implements OnInit {
   id: string | null;
 
   constructor(private fb: FormBuilder,
-              private router: Router,
-              private toastr: ToastrService,
-              private _productoService: ProductService,
-              private aRouter: ActivatedRoute){ 
+    private router: Router,
+    private toastr: ToastrService,
+    private _productoService: ProductService,
+    private aRouter: ActivatedRoute) {
     this.productoForm = this.fb.group({
       producto: ['', Validators.required],
       categoria: ['', Validators.required],
@@ -35,10 +35,10 @@ export class CreateProductsComponent implements OnInit {
     this.esEditar();
   }
 
-  agregaProducto(){
+  agregaProducto() {
     console.log(this.productoForm);
 
-    const PRODUCTS: Products ={
+    const PRODUCTS: Products = {
       nombre: this.productoForm.get('producto')?.value,
       categoria: this.productoForm.get('categoria')?.value,
       descripcion: this.productoForm.get('descripcion')?.value,
@@ -46,7 +46,7 @@ export class CreateProductsComponent implements OnInit {
       imagen: this.productoForm.get('imagen')?.value,
     }
 
-    if(this.id !== null){
+    if (this.id !== null) {
       //Editar Producto
       this._productoService.editarProducto(this.id, PRODUCTS).subscribe(data => {
         this.toastr.info('El Producto fue actualizado con éxito!', 'Producto Actualizado!');
@@ -69,9 +69,9 @@ export class CreateProductsComponent implements OnInit {
     }
   }
 
-  esEditar(){
+  esEditar() {
 
-    if(this.id !== null){
+    if (this.id !== null) {
       this.titulo = "Editar Producto";
       this._productoService.obtenerProducto(this.id).subscribe(data => {
         this.productoForm.setValue({

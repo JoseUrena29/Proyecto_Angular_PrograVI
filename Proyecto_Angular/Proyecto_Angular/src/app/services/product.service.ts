@@ -39,6 +39,10 @@ export class ProductService {
   filtrarProductos(categoria: string): Observable<Products[]> {
     const filtro = { categoria: categoria.toLowerCase() };
     return this.http.post<Products[]>(`${this.url}/Productos/${categoria}`, filtro);
-  } 
-
   }
+
+  formatDescription(descripcion: string): string[] {
+    return descripcion.split(', ');
+  }
+
+}
