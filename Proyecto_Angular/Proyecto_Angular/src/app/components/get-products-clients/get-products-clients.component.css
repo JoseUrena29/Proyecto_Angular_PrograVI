@@ -1,0 +1,27 @@
+.fas {
+  cursor: pointer;
+  margin-left: 7px;
+}
+
+.card {
+  height: 100%;
+  margin-bottom: 20px;
+}
+
+.container-fluid {
+  max-width: 1500px;
+}
+
+.btn-secondary {
+  background-color: #e60000;
+  border-color: #e60000;
+}
+
+.card-text {
+  white-space: pre-line;
+  text-align: center;
+}
+
+.text-danger {
+  font-size: 1.5rem;
+}
