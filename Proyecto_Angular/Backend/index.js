@@ -15,13 +15,8 @@ app.use(express.json());
 
 app.use('/api/Productos', require('./Routes/producto'));
 
-//Definir Ruta Principal
-///app.get('/', (req, res) => {
-//    res.send('Hola Mundo desde Backend');
-//})
-
 app.listen(4000, () => {
     console.log('El Servidor Backend esta compilando correctamente!')
 })
 
-//npm run dev
+//Ejecutar Backend: npm run dev

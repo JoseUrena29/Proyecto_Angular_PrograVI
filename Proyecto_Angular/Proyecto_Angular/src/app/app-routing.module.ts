@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'create-products', component: CreateProductsComponent },
   { path: 'edit-products/:id', component: CreateProductsComponent },
   { path: 'view-product-detail/:id', component: ViewProductDetailComponent },
-  { path: 'get-products', component: GetProductsComponent }, // Nueva ruta para GetProductsClientsComponent
+  { path: 'get-products', component: GetProductsComponent }, 
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
