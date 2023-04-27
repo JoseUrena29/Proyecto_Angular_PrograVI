@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { Products } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -20,6 +20,11 @@ export class ViewProductDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.verDetalleProducto();
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        window.scrollTo(0, 0);
+      }
+    });
   }
 
   verDetalleProducto(): void {

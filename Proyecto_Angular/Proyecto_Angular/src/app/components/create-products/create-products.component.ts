@@ -50,7 +50,7 @@ export class CreateProductsComponent implements OnInit {
       //Editar Producto
       this._productoService.editarProducto(this.id, PRODUCTS).subscribe(data => {
         this.toastr.info('El Producto fue actualizado con éxito!', 'Producto Actualizado!');
-        this.router.navigate(['/']);
+        this.router.navigate(['/get-products']);
       }, error => {
         console.log(error);
         //this.productoForm.reset();
@@ -61,12 +61,12 @@ export class CreateProductsComponent implements OnInit {
       console.log(PRODUCTS);
       this._productoService.crearProducto(PRODUCTS).subscribe(data => {
         this.toastr.success('El Producto fue registrado con éxito!', 'Producto Registrado!');
-        this.router.navigate(['/']);
+        this.router.navigate(['/get-products']);
       }, error => {
         console.log(error);
         this.productoForm.reset();
       })
-    }
+    }  
   }
 
   esEditar() {
